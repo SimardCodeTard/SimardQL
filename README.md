@@ -1,5 +1,5 @@
 # SimardQL
-Trying to make my own simple database in C !
+Trying to make my own simple database in C ! Built following Connor Stack's tutorial https://cstack.github.io/db_tutorial
 
 ## Setup
 ### Install CMake
@@ -13,6 +13,10 @@ Trying to make my own simple database in C !
 Run the following command in your terminal :
 
 `mkdir -p ./build && cd /build && cmake ..`
+
+### Environment variables
+The file **public.env** should already exist and contain the current version of the database, for any sensible information, create a file named **private.env** and define them in it
+
 
 ## Building & running
 execute the run.sh script
