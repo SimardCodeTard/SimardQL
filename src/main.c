@@ -9,7 +9,7 @@ typedef struct {
     ssize_t input_length;
 } InputBuffer;
 
-InputBuffer* new_input_buffer() {
+InputBuffer* new_input_buffer(void) {
     InputBuffer* input_buffer = (InputBuffer*)malloc(sizeof(InputBuffer));
     input_buffer->buffer = NULL;
     input_buffer->buffer_size = 0;
@@ -18,8 +18,8 @@ InputBuffer* new_input_buffer() {
     return input_buffer;
 }
 
-void print_prompt() {
-    printf("db > ");
+void print_prompt(void) {
+    printf("SimardQL > ");
 }
 
 void read_input(InputBuffer* input_buffer) {
@@ -39,7 +39,14 @@ void close_input_buffer(InputBuffer* input_buffer) {
     free(input_buffer);
 }
 
-int main() {
+int main(void) {
+    char *version = getenv("VERSION");
+    if (version == NULL) {
+        printf("Error: VERSION environment variable not set, defaulting to 0.1\n");
+        version = "0.1";
+    }
+
+    printf("Welcome to SimardQL version %s !\n", version);
     InputBuffer* input_buffer = new_input_buffer();
     while(true) {
         print_prompt();
